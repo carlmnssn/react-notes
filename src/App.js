@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Form from './components/Form.js'
+import List from './components/List.js'
+import './App.css'
 
-function App() {
+
+
+const App = () => {
+
+  //Setup state object (todoList) and function to update state (setTodoList)
+  const [todoList, setTodoList] = useState([])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* The form (./components/Form.js) is passed the state as todoList (todoList) and the function to update the state as a callback (addTodos)*/}
+      <Form todoList={todoList} addTodos={setTodoList} />
+      {/* The form (./components/List.js) is passed the state as todoList (todoList) and the function to update the state as a callback (handleTodos)*/}
+      <List todoList={todoList} handleTodos={setTodoList} />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
