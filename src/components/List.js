@@ -1,4 +1,5 @@
 import React from 'react'
+import Todo from './Todo'
 
 const List = ({ todoList, handleTodos }) => {
 
@@ -21,27 +22,9 @@ const List = ({ todoList, handleTodos }) => {
   }
 
   return (
-    <ul className="todo-list">
-      {todoList.map((todo, i) => todo.done ?
-        (<li className='todo todo-done' key={i} id={todo.id}>
-          <p>
-            {todo.todo}
-          </p>
-          <div className='list-buttons'>
-            <button className='toggle-done' id={todo.id} onClick={toggleDone}>NOT DONE</button>
-            <button className='delete-todo' id={todo.id} onClick={deleteTodo}>X</button>
-          </div>
-        </li>) :
-        (<li className='todo' key={i} id={todo.id}>
-          <p>
-            {todo.todo}
-          </p>
-          <div className='list-buttons'>
-            <button className='toggle-done' id={todo.id} onClick={toggleDone}>DONE</button>
-            <button className='delete-todo' id={todo.id} onClick={deleteTodo}>X</button>
-          </div>
-        </li>))}
-    </ul>
+    <React.Fragment>
+    <Todo todoList={todoList} deleteTodo={deleteTodo} toggleDone={toggleDone} />
+    </React.Fragment>
   )
 }
 

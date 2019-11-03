@@ -14,7 +14,7 @@ const App = () => {
     <div>
       {/* The form (./components/Form.js) is passed the state as todoList (todoList) and the function to update the state as a callback (addTodos)*/}
       <Form todoList={todoList} addTodos={setTodoList} />
-      {/* The form (./components/List.js) is passed the state as todoList (todoList) and the function to update the state as a callback (handleTodos)*/}
+      {/* The list (./components/List.js) is passed the state as todoList (todoList) and the function to update the state as a callback (handleTodos)*/}
       <List todoList={todoList} handleTodos={setTodoList} />
     </div>
   )
